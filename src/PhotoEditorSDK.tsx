@@ -16,6 +16,13 @@ export class PhotoEditorSDK extends React.Component {
     editor.on(UIEvent.EXPORT, imageSrc => {
       console.log('Exported ', imageSrc)
     })
+
+    editor.on(UIEvent.EXPORT, imageSrc => {
+      console.log('exported')
+    })
+    editor.on(UIEvent.CLOSE, () => {
+      console.log('closed')
+    })
   }
 
   render() {
