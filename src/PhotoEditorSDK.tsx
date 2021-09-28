@@ -10,7 +10,27 @@ export class PhotoEditorSDK extends React.Component {
       container: '#editor',
       displayCloseWarning: true,
       image: 'http://localhost:3000/assets/example.jpg', // Image url or Image path relative to assets folder
-      license: ''
+      license: '',
+      custom: {
+        languages: {
+          en: {
+            warningModals: {
+              discardChanges: {
+                headingDelimiter: ':',
+                body: 'You have unsaved changes. Are you sure you want to discard the changes?',
+                buttonYes: 'Discard changes',
+                buttonNo: 'Keep Changes'
+              },
+              unsavedChanges: {
+                headingDelimiter: ':',
+                body: 'You have unsaved changes. Are you sure you want to exit?',
+                buttonYes: 'Exit without saving',
+                buttonNo: 'Cancel'
+              }
+            }
+          }
+        }
+      }
     })
     console.log('PhotoEditorSDK for Web is ready!')
     editor.on(UIEvent.EXPORT, imageSrc => {
