@@ -30,6 +30,6 @@ export class PhotoEditorSDK extends React.Component {
   }
 
   render() {
-    return <div id="editor" style={{ width: '100vw', height: '100vh' }} />
+    return <div id="editor" />
   }
 }
