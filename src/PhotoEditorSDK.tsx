@@ -1,4 +1,4 @@
-import { UIEvent, PhotoEditorSDKUI } from 'photoeditorsdk'
+import { UIEvent, PhotoEditorSDKUI, Tool } from 'photoeditorsdk'
 import React from 'react'
 
 export class PhotoEditorSDK extends React.Component {
@@ -8,29 +8,13 @@ export class PhotoEditorSDK extends React.Component {
   async initEditor() {
     const editor = await PhotoEditorSDKUI.init({
       container: '#editor',
+      layout: 'basic',
+      theme: 'dark',
       displayCloseWarning: true,
       image: 'http://localhost:3000/assets/example.jpg', // Image url or Image path relative to assets folder
       license: '',
-      custom: {
-        languages: {
-          en: {
-            warningModals: {
-              discardChanges: {
-                headingDelimiter: ':',
-                body: 'You have unsaved changes. Are you sure you want to discard the changes?',
-                buttonYes: 'Discard changes',
-                buttonNo: 'Keep Changes'
-              },
-              unsavedChanges: {
-                headingDelimiter: ':',
-                body: 'You have unsaved changes. Are you sure you want to exit?',
-                buttonYes: 'Exit without saving',
-                buttonNo: 'Cancel'
-              }
-            }
-          }
-        }
-      }
+      defaultTool: Tool.TRANSFORM,
+      tools: [Tool.TRANSFORM, Tool.ADJUSTMENT]
     })
     console.log('PhotoEditorSDK for Web is ready!')
     editor.on(UIEvent.EXPORT, imageSrc => {

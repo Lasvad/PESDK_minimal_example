@@ -8,6 +8,8 @@ export const PhotoEditorSDK = (props: any) => {
   const initEditor = async () => {
     const editor = await PhotoEditorSDKUI.init({
       container: '#editor',
+      layout: 'basic',
+      theme: 'dark',
       displayCloseWarning: true,
       image: 'http://localhost:3000/assets/example.jpg', // Image url or Image path relative to assets folder
       license: ''
